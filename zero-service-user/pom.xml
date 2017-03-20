@@ -1,0 +1,62 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.zero.service</groupId>
+	<artifactId>zero-service-user</artifactId>
+	<version>${zero-service-user.verson}</version>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>net.zero.common-parent</groupId>
+		<artifactId>zero-common-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../common-parent</relativePath>
+	</parent>
+
+	<build>
+		<finalName>zero-service-user</finalName>
+
+		<resources>
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+					<include>**/*.yml</include>
+				</includes>
+			</resource>
+		</resources>
+
+	</build>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common</artifactId>
+			<version>${zero-common.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common-core</artifactId>
+			<version>${zero-common-core.verson}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common-config</artifactId>
+			<version>${zero-common-config.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.zero.facade</groupId>
+			<artifactId>zero-facade-user</artifactId>
+			<version>${zero-facade-user.verson}</version>
+		</dependency>
+
+	</dependencies>
+
+</project>

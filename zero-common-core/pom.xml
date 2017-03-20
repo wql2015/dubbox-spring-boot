@@ -1,0 +1,31 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.zero.common</groupId>
+	<artifactId>zero-common-core</artifactId>
+	<version>${zero-common-core.verson}</version>
+	<packaging>jar</packaging>
+
+	<parent>
+		<groupId>net.zero.common-parent</groupId>
+		<artifactId>zero-common-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../common-parent</relativePath>
+	</parent>
+
+	<properties>
+		<project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+	</properties>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common</artifactId>
+			<version>${zero-common.version}</version>
+		</dependency>
+
+	</dependencies>
+
+	<description>公共核心，公用dao持久化</description>
+</project>

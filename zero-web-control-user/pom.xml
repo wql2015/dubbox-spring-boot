@@ -1,0 +1,133 @@
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+	<modelVersion>4.0.0</modelVersion>
+	<groupId>net.zero.web.control</groupId>
+	<artifactId>zero-web-control-user</artifactId>
+	<version>${zero-web-control.user.version}</version>
+	<packaging>war</packaging>
+
+	<parent>
+		<groupId>net.zero.common-parent</groupId>
+		<artifactId>zero-common-parent</artifactId>
+		<version>0.0.1-SNAPSHOT</version>
+		<relativePath>../common-parent</relativePath>
+	</parent>
+
+	<dependencies>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common</artifactId>
+			<version>${zero-common.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common-config</artifactId>
+			<version>${zero-common-config.version}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.zero.common</groupId>
+			<artifactId>zero-common-web</artifactId>
+			<version>${zero-common-web.verson}</version>
+		</dependency>
+
+		<dependency>
+			<groupId>net.zero.facade</groupId>
+			<artifactId>zero-facade-user</artifactId>
+			<version>${zero-facade-user.verson}</version>
+		</dependency>
+		
+		
+		<!-- swagger2 -->
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger2</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<dependency>
+			<groupId>io.springfox</groupId>
+			<artifactId>springfox-swagger-ui</artifactId>
+			<version>2.2.2</version>
+		</dependency>
+		<!-- swagger2 -->
+
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>jstl</artifactId>
+		</dependency>
+
+		<!-- redis Nosql数据库 start -->
+		<!-- <dependency>
+			<groupId>org.springframework.data</groupId>
+			<artifactId>spring-data-redis</artifactId>
+		</dependency>
+
+		<dependency>
+			<groupId>redis.clients</groupId>
+			<artifactId>jedis</artifactId>
+		</dependency> -->
+
+		<!-- redis end -->
+
+
+		<!-- scope start -->
+		<!-- 编译需要而发布不需要的jar包，可以用scope标签，值设为provided -->
+		<dependency>
+			<groupId>org.springframework.boot</groupId>
+			<artifactId>spring-boot-starter-tomcat</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<!-- servlet依赖.用于支持jsp，官方不推荐，可使用freemaker -->
+		<dependency>
+			<groupId>javax.servlet</groupId>
+			<artifactId>javax.servlet-api</artifactId>
+			<scope>provided</scope>
+		</dependency>
+
+		<dependency>
+			<groupId>org.apache.tomcat.embed</groupId>
+			<artifactId>tomcat-embed-jasper</artifactId>
+			<scope>provided</scope>
+		</dependency>
+		<!-- servlet依赖.用于支持jsp，官方不推荐，可使用freemaker -->
+		<!-- scope end -->
+
+	</dependencies>
+
+	<build>
+		<finalName>user</finalName>
+		<resources>
+			<resource>
+				<targetPath>${project.build.directory}/classes</targetPath>
+				<directory>src/main/resources</directory>
+				<filtering>true</filtering>
+				<includes>
+					<include>**/*.xml</include>
+					<include>**/*.properties</include>
+				</includes>
+			</resource>
+		</resources>
+		<plugins>
+			<plugin>
+				<groupId>org.springframework.boot</groupId>
+				<artifactId>spring-boot-maven-plugin</artifactId>
+				<configuration>
+					<!-- 指定该Main Class为全局的唯一入口 -->
+					<mainClass>net.zero.Application</mainClass>
+				</configuration>
+				<executions>
+					<execution>
+						<goals>
+							<goal>repackage</goal><!--可以把依赖的包都打包到生成的Jar包中 -->
+						</goals>
+
+					</execution>
+				</executions>
+			</plugin>
+		</plugins>
+	</build>
+
+</project>
